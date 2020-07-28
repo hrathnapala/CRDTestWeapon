@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto">
+
+<!--    <item android:id="@+id/item1"-->
+<!--        android:icon="@mipmap/login"-->
+<!--        android:title="Login"-->
+<!--        apps:showAsAction="ifRoom"-->
+<!--        />-->
+    <item android:id="@+id/nav_login"
+        android:icon="@mipmap/login"
+        android:title="Login"
+        />
+    <item android:id="@+id/nav_calculation"
+        android:icon="@mipmap/calculate"
+        android:title="Calculation"/>
+
+    <item android:id="@+id/nav_logout"
+        android:title="Logout"/>
+</menu>

@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Weapon Project</string>
+    <string name="app_name">Welcome</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>

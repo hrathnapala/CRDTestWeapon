@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    >
+
+    <com.github.chrisbanes.photoview.PhotoView
+        android:id="@+id/photo_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:visibility="visible"
+        android:src="@drawable/photo"
+        android:layout_marginBottom="250dp"
+        />
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/photo_view"
+        android:layout_marginTop="-200dp"
+        android:hint="Unit"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:id="@+id/unit"
+        />
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/unit"
+        android:layout_centerHorizontal="true"
+        android:text="Done"
+        android:background="@drawable/button"
+        android:id="@+id/done"
+        />
+
+</RelativeLayout>

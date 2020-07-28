@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:apps="http://schemas.android.com/apk/res-auto">
+
+
+<item
+    android:id="@+id/capture"
+    android:icon="@mipmap/camera"
+    android:title="capture"
+    apps:showAsAction="ifRoom" />
+<item
+    android:id="@+id/pick"
+    android:icon="@mipmap/photo"
+    android:title="pick"
+    apps:showAsAction="ifRoom" />
+
+<item
+    android:id="@+id/exit"
+    android:icon="@mipmap/exit"
+    android:title="Exit"
+    apps:showAsAction="ifRoom" />
+
+</menu>
