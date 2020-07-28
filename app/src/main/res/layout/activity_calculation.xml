@@ -21,7 +21,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/photo_view"
         android:layout_marginTop="-200dp"
-        android:hint="Unit"
+        android:hint="Unit(mm)"
         android:textAlignment="center"
         android:textSize="20sp"
         android:id="@+id/unit"
@@ -35,5 +35,13 @@
         android:background="@drawable/button"
         android:id="@+id/done"
         />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:id="@+id/date"
+        android:layout_below="@id/photo_view"
+        android:layout_marginTop="-100dp"/>
 
 </RelativeLayout>

@@ -20,6 +20,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -31,6 +32,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.chrisbanes.photoview.OnPhotoTapListener;
@@ -41,6 +43,8 @@ import com.google.android.material.navigation.NavigationView;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Calculation extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
@@ -62,6 +66,7 @@ public class Calculation extends AppCompatActivity {
     private static final int PERMISSION_CODE = 1001;
     private final int IMG_REQUEST = 1;
     Bitmap bitmap;
+    private TextView date;
 
 
     @Override
@@ -72,6 +77,7 @@ public class Calculation extends AppCompatActivity {
         unit = findViewById(R.id.unit);
         done = findViewById(R.id.done);
         photoView.setZoomable(false);
+        date = findViewById(R.id.date);
 
         final ImageView iv = new ImageView(Calculation.this);
         coordinates = new ArrayList();
@@ -79,6 +85,29 @@ public class Calculation extends AppCompatActivity {
         final RelativeLayout rl = (RelativeLayout) findViewById(R.id.relativeLayout);
         unit.setVisibility(View.GONE);
         done.setVisibility(View.GONE);
+
+        final Handler h = new Handler();
+        h.postDelayed(new Runnable()
+        {
+            private long time = 0;
+
+            @Override
+            public void run()
+            {
+                // do stuff then
+                // can call h again after work!
+                Date currentTime = Calendar.getInstance().getTime();
+                h.postDelayed(this, 1000);
+                if(currentTime.getHours() > 0 && currentTime.getHours() < 11 ){
+                    date.setText(currentTime.toLocaleString() + "\n" + "Good Morning");
+                }else if(currentTime.getHours() >= 11 && currentTime.getHours() <= 15 ){
+                    date.setText(currentTime.toLocaleString() + "\n" + "Good Afternoon");
+                }else {
+                    date.setText(currentTime.toLocaleString() + "\n" + "Good Evening");
+                }
+
+            }
+        }, 1000); // 1 second delay (takes millis)
 
 
         photoView.setOnViewTapListener(new OnViewTapListener() {

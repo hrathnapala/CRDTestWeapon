@@ -9,6 +9,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,17 +24,45 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     private NavigationView navigationView;
-
+    private TextView date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        date = findViewById(R.id.date);
+
+        final Handler h = new Handler();
+        h.postDelayed(new Runnable()
+        {
+            private long time = 0;
+
+            @Override
+            public void run()
+            {
+                // do stuff then
+                // can call h again after work!
+                Date currentTime = Calendar.getInstance().getTime();
+                if(currentTime.getHours() > 0 && currentTime.getHours() < 11 ){
+                    date.setText(currentTime.toLocaleString() + "\n" + "Good Morning");
+                }else if(currentTime.getHours() >= 11 && currentTime.getHours() <= 15 ){
+                    date.setText(currentTime.toLocaleString() + "\n" + "Good Afternoon");
+                }else {
+                    date.setText(currentTime.toLocaleString() + "\n" + "Good Evening");
+                }
+                h.postDelayed(this, 1000);
+
+            }
+        }, 1000); // 1 second delay (takes millis)
+
         mDrawerLayout = findViewById(R.id.drawerLayout);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.addDrawerListener(mToggle);
