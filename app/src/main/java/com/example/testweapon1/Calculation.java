@@ -14,8 +14,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Paint;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -46,7 +44,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Calculation extends AppCompatActivity {
+
+
+public class Calculation extends AppCompatActivity{
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     //private TextView textView;
@@ -97,10 +97,11 @@ public class Calculation extends AppCompatActivity {
                 // do stuff then
                 // can call h again after work!
                 Date currentTime = Calendar.getInstance().getTime();
+                System.out.println(currentTime.getHours());
                 h.postDelayed(this, 1000);
-                if(currentTime.getHours() > 0 && currentTime.getHours() < 11 ){
+                if(currentTime.getHours() >= 0 && currentTime.getHours() < 11 ){
                     date.setText(currentTime.toLocaleString() + "\n" + "Good Morning");
-                }else if(currentTime.getHours() >= 11 && currentTime.getHours() <= 15 ){
+                }else if(currentTime.getHours() >= 11 && currentTime.getHours() < 15 ){
                     date.setText(currentTime.toLocaleString() + "\n" + "Good Afternoon");
                 }else {
                     date.setText(currentTime.toLocaleString() + "\n" + "Good Evening");
@@ -149,6 +150,8 @@ public class Calculation extends AppCompatActivity {
 
                         coordinates.add((int) (x - 65));
                         coordinates.add((int) (y - 35));
+
+
 
 
                         switch (coordinates.size()) {
@@ -462,4 +465,5 @@ public class Calculation extends AppCompatActivity {
         return false;
         // Disable back button..............
     }
+
 }

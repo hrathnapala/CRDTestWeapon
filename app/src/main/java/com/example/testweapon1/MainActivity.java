@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
                 // do stuff then
                 // can call h again after work!
                 Date currentTime = Calendar.getInstance().getTime();
-                if(currentTime.getHours() > 0 && currentTime.getHours() < 11 ){
+                if(currentTime.getHours() >= 0 && currentTime.getHours() < 11 ){
                     date.setText(currentTime.toLocaleString() + "\n" + "Good Morning");
-                }else if(currentTime.getHours() >= 11 && currentTime.getHours() <= 15 ){
+                }else if(currentTime.getHours() >= 11 && currentTime.getHours() < 15 ){
                     date.setText(currentTime.toLocaleString() + "\n" + "Good Afternoon");
                 }else {
                     date.setText(currentTime.toLocaleString() + "\n" + "Good Evening");

@@ -34,4 +34,5 @@ dependencies {
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
 
+
 }
